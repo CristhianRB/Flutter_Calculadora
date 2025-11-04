@@ -27,11 +27,18 @@ class _MyWidgetState extends State<CalculadoraScreen> {
                 child: SizedBox(
                   width: 65,
                   height: 65,
-                  child: FloatingActionButton(
+                  child: FloatingActionButton(child: Text("AC"),
                     shape: CircleBorder(),
                     backgroundColor: Colors.pink,
                     foregroundColor: Colors.black,
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        display = "";
+                        num1 = 0;
+                        num2 = 0;
+                        operation = "";
+                      });
+                    },
                   ),
                 ),
               ),
@@ -39,11 +46,15 @@ class _MyWidgetState extends State<CalculadoraScreen> {
                 child: SizedBox(
                   width: 65,
                   height: 65,
-                  child: FloatingActionButton(
+                  child: FloatingActionButton(child: Text("+/-"),
                     shape: CircleBorder(),
                     backgroundColor: Colors.pink,
                     foregroundColor: Colors.black,
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        display = (double.parse(display) * -1).toString();
+                      });
+                    },
                   ),
                 ),
               ),
@@ -51,11 +62,15 @@ class _MyWidgetState extends State<CalculadoraScreen> {
                 child: SizedBox(
                   width: 65,
                   height: 65,
-                  child: FloatingActionButton(
+                  child: FloatingActionButton(child: Text("%"),
                     shape: CircleBorder(),
                     backgroundColor: Colors.pink,
                     foregroundColor: Colors.black,
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        display = (double.parse(display) / 100).toString();
+                      });
+                    },
                   ),
                 ),
               ),
